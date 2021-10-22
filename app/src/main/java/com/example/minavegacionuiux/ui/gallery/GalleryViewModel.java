@@ -1,17 +1,22 @@
 package com.example.minavegacionuiux.ui.gallery;
 
+import android.widget.Button;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.minavegacionuiux.R;
 
 public class GalleryViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    private String urlImage;
+    private MutableLiveData<String> urlImage;
 
     public GalleryViewModel() {
         mText = new MutableLiveData<>();
+        urlImage = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }
 
@@ -19,11 +24,11 @@ public class GalleryViewModel extends ViewModel {
         return mText;
     }
 
-    public String urlImage() {
-        if (this.urlImage == null) {
-            this.urlImage = urlImageRandom();
+    public LiveData<String> urlImage() {
+        if (urlImage == null) {
+            urlImage.setValue(urlImageRandom());
         }
-        return this.urlImage;
+        return urlImage;
     }
 
     public String urlImageRandom() {

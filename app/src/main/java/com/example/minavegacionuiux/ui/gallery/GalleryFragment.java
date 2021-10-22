@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,10 +25,6 @@ public class GalleryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        /*View layoutGallery = inflater.inflate(R.layout.fragment_gallery, container, false);
-        img = layoutGallery.findViewById(R.id.imgRandom);
-        Picasso.with(getActivity()).load(new GalleryViewModel().urlImage()).into(img);
-        return layoutGallery;*/
 
         galleryViewModel =
                 new ViewModelProvider(this).get(GalleryViewModel.class);
@@ -37,8 +34,13 @@ public class GalleryFragment extends Fragment {
 
         final TextView textView = binding.textGallery;
         final ImageView img = binding.imgRandom;
+        final Button btn = binding.btnChangeImg;
 
-        Picasso.with(getActivity()).load(galleryViewModel.urlImage()).into(img);
+        Picasso.with(getActivity()).load(galleryViewModel.urlImage().getValue()).into(img);
+
+        btn.setOnClickListener(view -> {
+            Picasso.with(getActivity()).load(galleryViewModel.urlImage().getValue()).into(img);
+        });
 
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -46,6 +48,7 @@ public class GalleryFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
         return root;
     }
 

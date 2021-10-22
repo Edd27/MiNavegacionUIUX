@@ -18,19 +18,41 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.031" />
 
     <ImageView
         android:id="@+id/imgRandom"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="@+id/text_gallery"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/text_gallery"
         app:layout_constraintTop_toBottomOf="@+id/text_gallery"
         tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgRandom2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgRandom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgRandom"
+        app:layout_constraintTop_toBottomOf="@+id/imgRandom"
+        tools:src="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnChangeImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp"
+        android:text="Cambiar imagen"
+        app:layout_constraintBottom_toBottomOf="@+id/imgRandom2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="@+id/imgRandom2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="com.example.minavegacionuiux.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_blankFragment"
+            app:destination="@id/nav_blankFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -26,5 +30,10 @@
         android:id="@+id/nav_blankFragment"
         android:name="com.example.minavegacionuiux.BlankFragment"
         android:label="blank_fragment"
-        tools:layout="@layout/blank_fragment" />
+        tools:layout="@layout/blank_fragment" >
+        <argument
+            android:name="saludar"
+            app:argType="string"
+            android:defaultValue="Android" />
+    </fragment>
 </navigation>

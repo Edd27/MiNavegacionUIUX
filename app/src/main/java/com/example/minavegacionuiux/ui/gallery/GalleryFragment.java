@@ -35,11 +35,21 @@ public class GalleryFragment extends Fragment {
         final TextView textView = binding.textGallery;
         final ImageView img = binding.imgRandom;
         final Button btn = binding.btnChangeImg;
+        final ImageView img2 = binding.imgRandom2;
 
-        Picasso.with(getActivity()).load(galleryViewModel.urlImage().getValue()).into(img);
+        btn.setOnClickListener(view -> galleryViewModel.setRandomImage());
 
-        btn.setOnClickListener(view -> {
-            Picasso.with(getActivity()).load(galleryViewModel.urlImage().getValue()).into(img);
+        Picasso.with(getContext()).load(galleryViewModel.urlImage().getValue()).into(img);
+
+        galleryViewModel.urlImage().observe(getViewLifecycleOwner(), s -> {
+
+        });
+
+        galleryViewModel.urlImage().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Picasso.with(getContext()).load(s).into(img2);
+            }
         });
 
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
